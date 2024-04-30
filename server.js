@@ -62,3 +62,25 @@ app.post('/api/notes', (req, res) => {
         });
     });
 });
+
+// DELETE route to remove a note by its ID
+app.delete('/api/notes/:id', (req, res) => {
+    const noteId = req.params.id;
+
+    fs.readFile('./Develop/db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error reading notes data.');
+        }
+        let notes = JSON.parse(data);
+        notes = notes.filter(note => note.id !== noteId);
+
+        fs.writeFile('./Develop/db/db.json', JSON.stringify(notes), (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).send('Error saving updated notes data.');
+            }
+            res.status(204).send(); // No Content status because the resource was successfully deleted
+        });
+    });
+});
