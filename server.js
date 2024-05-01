@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const path = require('path');
+const PORT = process.env.PORT || 4000;
 
 // Serve static files from the 'public' directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'develop', 'public')));
 
 // Start the server
 app.listen(PORT, () => {
@@ -11,16 +12,15 @@ app.listen(PORT, () => {
 });
 
 
-const path = require('path');
 
 // Route to serve the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, 'Develop/public/notes.html'));
 });
 
 // Route to serve the notes page
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/notes.html'));
+    res.sendFile(path.join(__dirname, 'Develop/public/notes.html'));
 });
 
 const fs = require('fs');

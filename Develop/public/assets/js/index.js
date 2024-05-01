@@ -194,18 +194,3 @@ if (window.location.pathname === '/notes') {
 getAndRenderNotes();
 
 
-// Function to initialize button visibility based on note state
-const initializeButtonVisibility = () => {
-  if (!noteTitle.value.trim() && !noteText.value.trim()) {
-    hide(saveNoteBtn);
-    hide(clearBtn);
-    hide(newNoteBtn);
-  } else {
-    handleRenderBtns(); // Ensure the correct buttons are shown based on current input
-  }
-};
-
-// Call the function to set the initial UI state when the page loads
-if (window.location.pathname === '/notes') {
-  initializeButtonVisibility();
-}
