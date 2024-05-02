@@ -9,25 +9,20 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the 'public' directory under 'Develop'
-app.use(express.static(path.join(__dirname, 'Develop', 'public', 'assets')));
+// Serve static files from the 'public' directory located in 'Develop'
+app.use(express.static(path.join(__dirname, 'Develop', 'public')));
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`);
-});
-
-// Route to serve the main page, 'index.html'
+// Route to serve the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
 });
 
-// Route to serve the notes page, 'notes.html'
+// Route to serve the notes page
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
 });
 
-// GET route to retrieve notes from 'db.json'
+// GET route to retrieve notes
 app.get('/api/notes', (req, res) => {
     fs.readFile(path.join(__dirname, 'Develop', 'db', 'db.json'), 'utf8', (err, data) => {
         if (err) {
@@ -80,4 +75,9 @@ app.delete('/api/notes/:id', (req, res) => {
             res.status(204).send(); // No Content status because the resource was successfully deleted
         });
     });
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server listening on PORT ${PORT}`);
 });
