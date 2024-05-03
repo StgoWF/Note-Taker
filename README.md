@@ -40,6 +40,12 @@ Access the application at `http://localhost:4000` after starting the server.
 ## Repository
 The code for this application can be found at [GitHub Repository](https://github.com/StgoWF/Note-Taker).
 
+## Screenshot
+
+![Note Taker Screenshot](./Develop/public/assets/images/sreenshot.png)
+
+## Deployment
+Experience the live application [here](https://note-taker1695-76cb5ccb3d63.herokuapp.com/).
 
 ## Contributing
 Contributions are welcome. Please fork the repository and submit a pull request with your updates.
