@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' directory located in 'Develop'
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'Develop', 'public')));
 
 // Route to serve the main page
 app.get('/', (req, res) => {
