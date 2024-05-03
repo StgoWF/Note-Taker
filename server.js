@@ -32,7 +32,7 @@ app.get('/api/notes', (req, res) => {
         res.json(JSON.parse(data));
     });
 });
-
+   
 // POST route to add a new note
 app.post('/api/notes', (req, res) => {
     const newNote = { ...req.body, id: uuidv4() };
