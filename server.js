@@ -10,16 +10,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' directory located in 'Develop'
-app.use(express.static(path.join(__dirname, 'Develop', 'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 // Route to serve the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes'));
 });
 
 // Route to serve the notes page
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes'));
 });
 
 // GET route to retrieve notes
