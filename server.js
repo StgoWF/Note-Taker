@@ -14,12 +14,12 @@ app.use(express.static(path.join(__dirname,'public')));
 
 // Route to serve the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
 });
 
 // Route to serve the notes page
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'notes.html'));
 });
 
 // GET route to retrieve notes
